@@ -14,7 +14,7 @@ class Solution:
 
 
 obj = Solution()
-obj.productExceptSelf([1,2,3,4])
+obj.productExceptSelf([1, 2, 3, 4])
 
 
 
