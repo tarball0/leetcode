@@ -1,16 +1,31 @@
 class Solution:
     def productExceptSelf(self, nums):
-        output = [] 
-        for i in range(len(nums)):
-            output1 = nums[:i]
-            print(output1)
-            output2 = nums[i+1:]
-            print(output2)
-            outputfinal = output1.append(output2)
-            print(outputfinal)
-            output.append(outputfinal)
+        answer = []
+        lprod = 1
+        larr = [1]
+        
+        for i in range(len(nums)-1):
+            lprod *= nums[i]
+            larr.append(lprod)
 
-        print(output)
+        rprod = 1
+        rarr = []
+        var = 1
+
+        for i in range(len(nums)):
+            rarr.append(None)
+
+        rarr[len(nums)-1] = 1
+        for i in range((len(nums)-2), -1, -1):
+            rprod *= nums[i+1]
+            rarr[i] = rprod
+
+        for i in range(len(nums)):
+            answer.append(larr[i] * rarr[i])
+
+        return answer
+
+
 
 
 obj = Solution()
